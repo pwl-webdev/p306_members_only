@@ -1,0 +1,11 @@
+<div align = "center">    
+    <%= form_for @post, :url => posts_path do |f| %>
+      <%= f.label :title, "    Title" %>
+      <%= f.text_field :title %>
+      <br>
+      <%= f.label :body, "Your post" %>
+      <%= f.text_area(:body, size: "30x10") %>
+      <br>
+      <%= f.submit "Submit" %>
+    <% end %>
+</div>

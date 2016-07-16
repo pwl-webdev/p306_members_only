@@ -1,7 +1,4 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  include SessionsHelper
-
+module SessionsHelper
 	def log_in(user)
 		session[:user_id] = user.id
 	end
@@ -39,13 +36,4 @@ class ApplicationController < ActionController::Base
 		session.delete(:user_id)
 		@current_user = nil
 	end
-
-  def require_login
-  	if !current_user.nil?
-  		return true
-  	else
-  		redirect_to root_url
-  		return false
-  	end
-  end
 end
